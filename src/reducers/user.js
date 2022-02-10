@@ -1,6 +1,6 @@
 /* eslint-disable keyword-spacing */
 // eslint-disable-next-line import/named
-import { LOGIN_USER } from '../actions';
+import { LOGIN_USER } from '../actions/index';
 // Esse reducer será responsável por tratar as informações da pessoa usuária
 
 const INITIAL_STATE = {
@@ -10,7 +10,7 @@ const INITIAL_STATE = {
 };
 
 const userLogin = (state = INITIAL_STATE, actions) => {
-  switch(actions.type) {
+  switch (actions.type) {
   case LOGIN_USER:
     return {
       ...state,

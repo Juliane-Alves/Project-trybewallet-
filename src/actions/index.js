@@ -1,19 +1,14 @@
 // Coloque aqui suas actions
-const LOGIN_USER = 'LOGIN_USER';
-const CURRENCIES = 'CURRENCIES';
-const EXPENSES = 'EXPENSES';
+export const LOGIN_USER = 'LOGIN_USER';
+export const CHANGE_WALLET = 'CHANGE_WALLET';
 
-export const saveUserAct = (email) => ({
+export const getLogin = (email) => ({
   type: LOGIN_USER,
   email,
 });
 
-export const getCurrencies = (currencies) => ({
-  type: CURRENCIES,
-  currencies,
+export const getWallet = () => ({
+  type: CHANGE_WALLET,
 });
 
-export const getExpenses = (expenses) => ({
-  type: EXPENSES,
-  expenses,
-});
+// Primeiras actions type feitas com erro "indefinido", conclusão com ajuda do colega Matheus Alves;
