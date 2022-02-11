@@ -4,9 +4,7 @@ import { LOGIN_USER } from '../actions/index';
 // Esse reducer será responsável por tratar as informações da pessoa usuária
 
 const INITIAL_STATE = {
-  user: {
-    email: '',
-  },
+  email: '',
 };
 
 const userLogin = (state = INITIAL_STATE, actions) => {
@@ -14,9 +12,7 @@ const userLogin = (state = INITIAL_STATE, actions) => {
   case LOGIN_USER:
     return {
       ...state,
-      user: {
-        email: actions.email,
-      },
+      email: actions.email,
     };
   default:
     return state;

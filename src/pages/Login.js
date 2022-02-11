@@ -15,19 +15,19 @@ class Login extends React.Component {
   }
 
   handleChange = ({ target: { name, value } }) => {
-    this.setState({ [name]: value }, this.btnValidate);
+    this.setState({ [name]: value }, () => this.btnValidate());
   }
 
   btnValidate = () => {
     const MIN_CHARACTERS = 6;
     const { email, password } = this.state;
-    // uso do toLowerCase https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
-    // uso do match https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/match
-    // comentario de validação anterior que não funcionou/ tentantiva com o includes.
-    const validateEmail = 'email@email.com';
-    const emailCheck = validateEmail.test(email);
+    // const validateEmail = 'email@email.com';
+    //  regex pra validação de email https://pt.stackoverflow.com/questions/1386/express%C3%A3o-regular-para-valida%C3%A7%C3%A3o-de-e-mail
+    const validateEmail = email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
     const passwordCheck = password.length >= MIN_CHARACTERS;
-    this.setState({ buttonIsDisabled: !(emailCheck && passwordCheck) });
+    this.setState({ buttonIsDisabled: !(validateEmail && passwordCheck) });
+    // console.log('test');
+    // Referencia: Ajuda na resolução final da colega de classe Paula Tortato;
   }
   // Habitlitação do botão de acordo com email valido e quantidade de caracters minimos;
 
@@ -47,6 +47,7 @@ class Login extends React.Component {
               data-testid="email-input"
               value={ email }
               onChange={ this.handleChange }
+              onKeyUp={ this.handleChange }
             />
           </label>
           <label htmlFor="password">
@@ -58,6 +59,7 @@ class Login extends React.Component {
               data-testid="password-input"
               value={ password }
               onChange={ this.handleChange }
+              onKeyUp={ this.handleChange }
             />
           </label>
           <button
