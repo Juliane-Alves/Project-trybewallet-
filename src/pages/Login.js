@@ -23,10 +23,11 @@ class Login extends React.Component {
     const { email, password } = this.state;
     // uso do toLowerCase https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
     // uso do match https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/match
-    // comentario de validação anterior que não funcionou/ tentantiva com o includes!
-    const validateEmail = email.includes('@' && '.com');
+    // comentario de validação anterior que não funcionou/ tentantiva com o includes.
+    const validateEmail = 'email@email.com';
+    const emailCheck = validateEmail.test(email);
     const passwordCheck = password.length >= MIN_CHARACTERS;
-    this.setState({ buttonIsDisabled: !(validateEmail && passwordCheck) });
+    this.setState({ buttonIsDisabled: !(emailCheck && passwordCheck) });
   }
   // Habitlitação do botão de acordo com email valido e quantidade de caracters minimos;
 
