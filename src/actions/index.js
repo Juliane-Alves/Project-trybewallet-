@@ -1,4 +1,6 @@
 // Coloque aqui suas actions
+import fetchAPI from '../services';
+
 export const LOGIN_USER = 'LOGIN_USER';
 export const CHANGE_WALLET = 'CHANGE_WALLET';
 export const REQUEST_API = 'REQUEST_API';
@@ -30,7 +32,7 @@ export const failApi = (error) => ({
 
 export const fetchCurrencies = (expense) => (dispatch) => {
   dispatch(requestApi());
-  return coinsApi().then(
+  return fetchAPI().then(
     (coins) => dispatch(getWallet(expense, coins)),
     (error) => dispatch(failApi(error.message)),
   );
