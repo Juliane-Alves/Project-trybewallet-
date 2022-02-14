@@ -26,7 +26,6 @@ class Login extends React.Component {
     const validateEmail = email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
     const passwordCheck = password.length >= MIN_CHARACTERS;
     this.setState({ buttonIsDisabled: !(validateEmail && passwordCheck) });
-    // console.log('test');
     // Referencia: Ajuda na resolução final da colega de classe Paula Tortato;
   }
   // Habitlitação do botão de acordo com email valido e quantidade de caracters minimos;
