@@ -27,6 +27,7 @@ class Despesas extends React.Component {
             const expenseValue = Number(value).toFixed(2); // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
             const priceValue = (expenseValue * exchangeRates[currency].ask).toFixed(2);
             const currencyName = exchangeRates[currency].name.split('/');
+            // tabela com informações vindas do estado da aplicação;
             return (
               <tr key={ expense.id }>
                 <td>{description}</td>
